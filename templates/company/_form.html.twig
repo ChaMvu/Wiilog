@@ -1,0 +1,17 @@
+{% block content %}
+    <div class="container justify-content-center col-8 ">
+        {{ form_start(form, { 'attr': {'class': 'form-group'} }) }}
+
+        <div class="col-12 ">  {{ form_row(form.name, { 'attr': {'class': 'form-control'}, 'label' : 'Nom'}) }} </div>
+        <div class="col-12 "> {{ form_row(form.email, { 'attr': {'class': 'form-control'}}) }} </div>
+        <div class="col-12 "> {{ form_row(form.type, { 'attr': {'class': 'form-control'}}) }} </div>
+        <div class="col-8"> Français</div>
+        <div class="col-4"> {{ form_widget(form.french, {'attr': {'class': 'form-checkbox-widget'}}) }} </div>
+
+        <div class="row justify-content-center">
+            <button class="btn btn-outline-light col-4">{{ button_label|default('Sauvegarder') }}</button>
+        </div>
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}

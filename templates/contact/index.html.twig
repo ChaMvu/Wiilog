@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact index{% endblock %}
+
+{% block body %}
+    <h1 class="title">Contact index</h1>
+    <div class="container">
+        <div class="row">
+            <table class="table">
+                <thead class="tab-name">
+                <tr>
+                    <th>Nom</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody class="tab-content">
+                {% for contact in contacts %}
+                    <tr>
+                        <td>{{ contact.name }}</td>
+                        <td>{{ contact.email }}</td>
+                        <td>
+                            <a class="btn btn-outline-light" href="{{ path('contact_show', {'id': contact.id}) }}">Voir</a>
+                            <a class="btn btn-outline-light" href="{{ path('contact_edit', {'id': contact.id}) }}">Modifier</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="4">Aucun contact trouvé.</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <a class="btn btn-outline-light col-4" href="{{ path('contact_new') }}">Créer un nouveau contact</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Entreprise index{% endblock %}
+
+{% block body %}
+    <h1 class="title">Entreprise index</h1>
+    <div class="container">
+        <div class="row">
+            <table class="table">
+                <thead class="tab-name">
+                <tr>
+                    <th>Nom</th>
+                    <th>Email</th>
+                    <th>Français</th>
+                    <th>Options</th>
+                </tr>
+                </thead>
+                <tbody class="tab-content">
+                {% for company in companies %}
+                    <tr>
+                        <td>{{ company.name }}</td>
+                        <td>{{ company.email }}</td>
+                        <td>{{ company.french ? 'Oui' : 'Non' }}</td>
+                        <td>
+                            <a class="btn btn-outline-light" href="{{ path('company_show', {'id': company.id}) }}">Voir</a>
+                             <a class="btn btn-outline-light" href="{{ path('company_edit', {'id': company.id}) }}">Modifier</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="5">Aucune entreprise trouvée</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="row justify-content-center">
+            <a class="btn btn-outline-light col-4" href="{{ path('company_new') }}"> Créer une nouvelle entreprise</a>
+        </div>
+
+    </div>
+
+{% endblock %}
+

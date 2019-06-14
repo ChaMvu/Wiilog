@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1 class = "title" > Bienvenue sur votre espace.</h1>
+    <br>
+    <br>
+
+    <div class="container col-3">
+
+        <a class="btn btn-outline-light col-10" href="{{ path('company_index') }}">
+                Liste des entreprises
+            </a>
+        <br>
+        <br>
+
+        <a class="btn btn-outline-light col-10" href="{{ path('contact_index') }}">
+                Liste des contacts
+            </a>
+        <br>
+        <br>
+    </div>
+
+
+{% endblock %}
